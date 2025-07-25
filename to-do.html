@@ -8,6 +8,8 @@
   <input id="item-id" placeholder="Enter ID"><br>
   <label>Item UUID:</label>
   <input id="item-uuid" placeholder="Enter UUID"><br>
+<label>Item Hash:</label>
+  <input id="item-hash" placeholder="Enter Hash"><br>
   <input id="task" placeholder="Add task">
   <button onclick="add()">Add</button>
   <ul id="list"></ul>
@@ -20,6 +22,9 @@
       let li = document.createElement("li");
       li.textContent = `ID: ${id} - ${t}`;
       li.onclick = () => li.remove();
+      let hash = document.getElementById("item-hash").value;
+      li.textContent = `ID: ${id}, UUID: ${uuid}, Hash: ${hash} - ${t}`;
+      document.getElementById("item-hash").value = "";
       document.getElementById("list").appendChild(li);
       document.getElementById("task").value = "";
       document.getElementById("item-id").value = "";
