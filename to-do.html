@@ -3,19 +3,26 @@
 <head><title>To-Do</title></head>
 <body>
   <h3>To-Do</h3>
+
+  <label>Item ID:</label>
+  <input id="item-id" placeholder="Enter ID"><br>
+  <label>Item UUID:</label>
+  <input id="item-uuid" placeholder="Enter UUID"><br>
   <input id="task" placeholder="Add task">
   <button onclick="add()">Add</button>
   <ul id="list"></ul>
 
   <script>
     function add() {
+      let id = document.getElementById("item-id").value;
       let t = document.getElementById("task").value;
       if (t === "") return;
       let li = document.createElement("li");
-      li.textContent = t;
+      li.textContent = `ID: ${id} - ${t}`;
       li.onclick = () => li.remove();
       document.getElementById("list").appendChild(li);
       document.getElementById("task").value = "";
+      document.getElementById("item-id").value = "";
     }
   </script>
 </body>
